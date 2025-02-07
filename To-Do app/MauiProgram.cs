@@ -1,4 +1,8 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Firebase.Auth;
+using Firebase.Auth.Providers;
+using Firebase.Auth.Repository;
+using Microsoft.Extensions.Logging;
+using To_Do_app.Pages;
 
 namespace To_Do_app
 {
@@ -19,6 +23,23 @@ namespace To_Do_app
     		builder.Logging.AddDebug();
 #endif
 
+            builder.Services.AddSingleton(new FirebaseAuthClient(new FirebaseAuthConfig()
+            {
+                ApiKey = "AIzaSyAC42MVEzGxammhTgrwipGVdnIQFPlIgIg",
+                AuthDomain = "to-do-7265f.firebaseapp.com",
+                Providers = new FirebaseAuthProvider[]
+                {
+                    new EmailProvider()
+                },
+                UserRepository = new FileUserRepository("To-Do app"),
+            }));
+
+            builder.Services.AddSingleton<SignInViewModel>();
+            builder.Services.AddSingleton<SignUpViewModel>();
+            builder.Services.AddSingleton<HomePageViewModel>();
+            builder.Services.AddSingleton<HomePageView>();
+            builder.Services.AddSingleton<SignInView>();
+            builder.Services.AddSingleton<SignUpView>();
             return builder.Build();
         }
     }

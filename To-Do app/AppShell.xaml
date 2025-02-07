@@ -3,13 +3,22 @@
     x:Class="To_Do_app.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:To_Do_app"
-    Shell.FlyoutBehavior="Flyout"
+    xmlns:pages="clr-namespace:To_Do_app.Pages"
+    Shell.FlyoutBehavior="Disabled"
     Title="To_Do_app">
 
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Title="Sign In"
+        ContentTemplate="{DataTemplate pages:SignInView}"
+        Route="SignIn" />
 
+    <ShellContent
+        Title="Sign Up"
+        ContentTemplate="{DataTemplate pages:SignUpView}"
+        Route="SignUp"/>
+    
+    <ShellContent
+        Title="Home Page"
+        ContentTemplate="{DataTemplate pages:HomePageView}"
+        Route="HomePage"/>
 </Shell>
