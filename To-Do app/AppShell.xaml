@@ -5,10 +5,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:pages="clr-namespace:To_Do_app.Pages"
     Shell.FlyoutBehavior="Disabled"
-    Shell.TabBarBackgroundColor="#363636"
-    Title="To_Do_app">
+    Shell.TabBarBackgroundColor="#363636">
     
-<ShellContent
+    <ShellContent
         ContentTemplate="{DataTemplate pages:SignInView}"
         Route="SignIn"
         />
@@ -16,6 +15,8 @@
     <ShellContent
         ContentTemplate="{DataTemplate pages:SignUpView}"
         Route="SignUp"/>
+    
+    
     <TabBar>
         <Tab Title="Home" Icon="home.png">
             <ShellContent
@@ -25,6 +26,9 @@
 
         <Tab Title="Add Task" Icon="add_icon1.png">
             <ShellContent ContentTemplate="{DataTemplate pages:AddTaskView}" Route="AddTask"/>
+        </Tab>
+        <Tab Title="Profile" Icon="user.png">
+            <ShellContent ContentTemplate="{DataTemplate pages:ProfileView}" Route="Profile"/>
         </Tab>
     </TabBar>
     

@@ -39,6 +39,10 @@ namespace To_Do_app
             builder.Services.AddSingleton<SignInViewModel>();
             builder.Services.AddSingleton<SignUpViewModel>();
             builder.Services.AddSingleton<HomePageViewModel>();
+            builder.Services.AddSingleton<ProfileViewModel>();
+            builder.Services.AddSingleton<AddTaskViewModel>();
+            builder.Services.AddSingleton<AddTaskView>();
+            builder.Services.AddSingleton<ProfileView>();
             builder.Services.AddSingleton<HomePageView>();
             builder.Services.AddSingleton<SignInView>();
             builder.Services.AddSingleton<SignUpView>();
