@@ -2,12 +2,51 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="To_Do_app.Pages.SignInView"
-             Title="Sign In">
-    <VerticalStackLayout>
-        <Entry Text="{Binding Email}" />
-        <Entry Text="{Binding Password}" IsPassword="True"/>
-        <Button Command="{Binding SignInCommand}" Text="Sign In"/>
-        <Button Command="{Binding NavigateSignUpCommand}" Text="Sign Up"/>
-        <Label Margin="0,20,0,0" Text="{Binding Username}"/>
+             >
+    <VerticalStackLayout Padding="20" Spacing="15">
+        <!-- Login Title -->
+        <Label Text="Login" 
+               FontSize="28" 
+               FontAttributes="Bold" 
+               TextColor="White" />
+
+        <!-- Email Input -->
+        <Label Text="Email" 
+               FontSize="14" 
+               TextColor="White"/>
+        <Frame BackgroundColor="Transparent" BorderColor="Gray" CornerRadius="5" Padding="5">
+            <Entry Text="{Binding Email}" 
+               Placeholder="Enter your email"
+               TextColor="White" 
+               PlaceholderColor="Gray" 
+               />
+        </Frame>
+        <!-- Password Input -->
+        <Label Text="Password" 
+               FontSize="14" 
+               TextColor="White"/>
+        <Frame BackgroundColor="Transparent" BorderColor="Gray" CornerRadius="5" Padding="5">
+            <Entry Text="{Binding Password}" 
+               IsPassword="True"
+               Placeholder="************" 
+               TextColor="White" 
+               PlaceholderColor="Gray" 
+               />
+        </Frame>
+
+        <Button Command="{Binding SignInCommand}" 
+                Text="Sign In"
+                BackgroundColor="#0D3D0B"
+                TextColor="White"
+                CornerRadius="5"
+                HeightRequest="45"/>
+        
+        <Button Command="{Binding NavigateSignUpCommand}" 
+                Text="Don't have an account? Sign up!" 
+                BackgroundColor="#A67C52" 
+                TextColor="White"
+                CornerRadius="5"
+                HeightRequest="45"/>
+        
     </VerticalStackLayout>
 </ContentPage>

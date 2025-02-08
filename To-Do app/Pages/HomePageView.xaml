@@ -2,12 +2,60 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="To_Do_app.Pages.HomePageView"
-             Title="Home Page">
+             Background="Black">
     <VerticalStackLayout>
         <Label 
             Text="{Binding WelcomeText}"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            FontSize="24" 
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               TextColor="White"/>
+        
+        
+
+        <!-- Search Bar -->
+        <SearchBar x:Name="TaskSearchBar"
+                   Placeholder="Search for your task..."
+                   PlaceholderColor="Gray"
+                   TextColor="White"
+                   BackgroundColor="Transparent"/>
+
+        <!-- Task Filter -->
+        <Picker x:Name="FilterPicker"
+                Title="Today"
+                TextColor="White"
+                BackgroundColor="Gray">
+            <Picker.Items>
+                <x:String>Today</x:String>
+                <x:String>Completed</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <!-- Task List -->
+        <CollectionView x:Name="TaskListView">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BackgroundColor="#333" Padding="10" CornerRadius="10">
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Title}" FontSize="18" TextColor="White"/>
+                            <Label Text="{Binding Time}" FontSize="14" TextColor="Gray"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Floating Add Button -->
+        <Button Text="+" 
+                FontSize="24"
+                WidthRequest="60"
+                HeightRequest="60"
+                CornerRadius="30"
+                BackgroundColor="Green"
+                TextColor="White"
+                HorizontalOptions="End"
+                />
+        
         <Button Command="{Binding LogoutCommand}" Text="Logout"/>
     </VerticalStackLayout>
 </ContentPage>

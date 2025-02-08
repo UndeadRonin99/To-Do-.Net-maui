@@ -1,13 +1,64 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="To_Do_app.Pages.SignUpView"
-             Title="Sign Up">
-    <VerticalStackLayout>
-        <Entry Text="{Binding Email}" />
-        <Entry Text="{Binding Username}"/>
-        <Entry Text="{Binding Password}" IsPassword="True"/>
-        <Button Command="{Binding SignUpCommand}" Text="Sign Up"/>
-        <Button Command="{Binding NavigateSignInCommand}" Text="Go to sign in"/>
+             x:Class="To_Do_app.Pages.SignUpView">
+    
+    <VerticalStackLayout Padding="20" Spacing="15">
+        <!-- Sign Up Title -->
+        <Label Text="Sign Up" 
+               FontSize="28" 
+               FontAttributes="Bold" 
+               TextColor="White" />
+
+        <!-- Email Input -->
+        <Label Text="Email" 
+               FontSize="14" 
+               TextColor="White"/>
+        <Frame BackgroundColor="Transparent" BorderColor="Gray" CornerRadius="5" Padding="5">
+            <Entry Text="{Binding Email}" 
+               Placeholder="Enter your Email" 
+               TextColor="White" 
+               PlaceholderColor="Gray" 
+               />
+        </Frame>
+
+        <!-- Username Input -->
+        <Label Text="Username" 
+               FontSize="14" 
+               TextColor="White"/>
+        <Frame BackgroundColor="Transparent" BorderColor="Gray" CornerRadius="5" Padding="5">
+            <Entry Text="{Binding Username}"
+               Placeholder="Enter Your Username" 
+               TextColor="White" 
+               PlaceholderColor="Gray" 
+               />
+        </Frame>
+
+        <!-- Password Input -->
+        <Label Text="Password" 
+               FontSize="14" 
+               TextColor="White"/>
+        <Frame BackgroundColor="Transparent" BorderColor="Gray" CornerRadius="5" Padding="5">
+            <Entry Text="{Binding Password}" 
+                IsPassword="True"
+                Placeholder="************" 
+                TextColor="White" 
+                PlaceholderColor="Grey" 
+               />
+         </Frame>
+        
+        <Button Command="{Binding SignUpCommand}" 
+                Text="Sign Up"
+                BackgroundColor="#0D3D0B"
+                TextColor="White"
+                CornerRadius="5"
+                HeightRequest="45"/>
+        
+        <Button Command="{Binding NavigateSignInCommand}" 
+                Text="Already have an account? Log in!" 
+                BackgroundColor="#A67C52" 
+                TextColor="White"
+                CornerRadius="5"
+                HeightRequest="45"/>
     </VerticalStackLayout>
 </ContentPage>
